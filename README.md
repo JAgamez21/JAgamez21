@@ -2,7 +2,7 @@
 
 **Full Stack Developer · Telematic Engineer**
 
-Me gusta construir software que resuelva problemas reales y entender cómo funciona cada pieza por dentro, desde la pantalla que ve el usuario hasta la base de datos. Empecé como técnico en sistemas, seguí como tecnólogo y hoy soy ingeniero telemático. me apasiona mucho conocer nuevas herramientas que me ayuden a optimizar mis procesos y perfeccionar los resultados como Calude Code o Github Copilot.
+Me gusta construir software que resuelva problemas reales y entender cómo funciona cada pieza por dentro, desde la pantalla que ve el usuario hasta la base de datos. Empecé como técnico en sistemas, seguí como tecnólogo y hoy soy ingeniero telemático. me apasiona mucho conocer nuevas herramientas que me ayuden a optimizar mis procesos y perfeccionar los resultados como Claude Code o Github Copilot.
 
 Llevo más de 4 años programando, principalmente con **.NET** y **Angular**, y siempre estoy aprendiendo algo nuevo.
 
