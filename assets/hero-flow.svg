@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="230" viewBox="0 0 820 230">
+  <style>
+    .mono { font-family: 'Cascadia Code', Consolas, Menlo, 'DejaVu Sans Mono', monospace; }
+    .lbl  { font-size: 15px; font-weight: 700; fill: #E6EDF3; }
+    .sub  { font-size: 11px; fill: #8B949E; }
+    .note { font-size: 13px; fill: #8B949E; }
+    .ok   { font-size: 14px; font-weight: 700; fill: #3FB950; }
+  </style>
+
+  <!-- card -->
+  <rect x="1" y="1" width="818" height="228" rx="14" fill="#0D1117" stroke="#30363D"/>
+  <text x="28" y="38" class="mono note">// el viaje de un request por lo que construyo</text>
+
+  <!-- wire -->
+  <line x1="90" y1="120" x2="730" y2="120" stroke="#30363D" stroke-width="2" stroke-dasharray="6 6">
+    <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- packet (drawn under nodes so it "enters" each one) -->
+  <circle r="7" fill="#FFFFFF">
+    <animateMotion dur="6s" repeatCount="indefinite" path="M90 120 H730"
+      keyPoints="0;0.5;0.5;1;1" keyTimes="0;0.3;0.5;0.8;1" calcMode="linear"/>
+  </circle>
+
+  <!-- node template: glow + box + labels -->
+  <!-- 1 Angular -->
+  <g>
+    <rect x="30" y="88" width="120" height="64" rx="10" fill="#161B22" stroke="#DD0031" stroke-width="2"/>
+    <rect x="30" y="88" width="120" height="64" rx="10" fill="#DD0031" opacity="0">
+      <animate attributeName="opacity" values="0.35;0;0" keyTimes="0;0.1;1" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="90" y="116" text-anchor="middle" class="mono lbl">Angular</text>
+    <text x="90" y="136" text-anchor="middle" class="mono sub">interfaz</text>
+  </g>
+
+  <!-- 2 .NET API -->
+  <g>
+    <rect x="190" y="88" width="120" height="64" rx="10" fill="#161B22" stroke="#512BD4" stroke-width="2"/>
+    <rect x="190" y="88" width="120" height="64" rx="10" fill="#512BD4" opacity="0">
+      <animate attributeName="opacity" values="0;0;0.45;0;0" keyTimes="0;0.13;0.15;0.25;1" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="250" y="116" text-anchor="middle" class="mono lbl">.NET API</text>
+    <text x="250" y="136" text-anchor="middle" class="mono sub">REST</text>
+  </g>
+
+  <!-- 3 RabbitMQ (the packet waits here: async) -->
+  <g>
+    <rect x="350" y="88" width="120" height="64" rx="10" fill="#161B22" stroke="#FF6600" stroke-width="2"/>
+    <rect x="350" y="88" width="120" height="64" rx="10" fill="#FF6600" opacity="0">
+      <animate attributeName="opacity" values="0;0;0.4;0.4;0;0" keyTimes="0;0.28;0.3;0.5;0.56;1" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="410" y="116" text-anchor="middle" class="mono lbl">RabbitMQ</text>
+    <text x="410" y="136" text-anchor="middle" class="mono sub">en cola…</text>
+    <!-- queue bars stacking up while it waits -->
+    <g fill="#FF6600">
+      <rect x="386" y="164" width="12" height="6" rx="2" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.31;0.32;0.5;0.51;1" dur="6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="404" y="164" width="12" height="6" rx="2" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.37;0.38;0.5;0.51;1" dur="6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="422" y="164" width="12" height="6" rx="2" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.43;0.44;0.5;0.51;1" dur="6s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+
+  <!-- 4 Worker -->
+  <g>
+    <rect x="510" y="88" width="120" height="64" rx="10" fill="#161B22" stroke="#2F81F7" stroke-width="2"/>
+    <rect x="510" y="88" width="120" height="64" rx="10" fill="#2F81F7" opacity="0">
+      <animate attributeName="opacity" values="0;0;0.45;0;0" keyTimes="0;0.63;0.65;0.75;1" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="570" y="116" text-anchor="middle" class="mono lbl">Worker</text>
+    <text x="570" y="136" text-anchor="middle" class="mono sub">Hangfire</text>
+  </g>
+
+  <!-- 5 SQL Server -->
+  <g>
+    <rect x="670" y="88" width="120" height="64" rx="10" fill="#161B22" stroke="#CC2927" stroke-width="2"/>
+    <rect x="670" y="88" width="120" height="64" rx="10" fill="#CC2927" opacity="0">
+      <animate attributeName="opacity" values="0;0;0.45;0.45;0" keyTimes="0;0.78;0.8;0.95;1" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="730" y="116" text-anchor="middle" class="mono lbl">SQL Server</text>
+    <text x="730" y="136" text-anchor="middle" class="mono sub">datos</text>
+  </g>
+
+  <!-- result -->
+  <text x="790" y="200" text-anchor="end" class="mono ok" opacity="0">✓ procesado
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.8;0.83;0.96;1" dur="6s" repeatCount="indefinite"/>
+  </text>
+  <text x="28" y="200" class="mono note">microservicios · mensajería asíncrona</text>
+</svg>
